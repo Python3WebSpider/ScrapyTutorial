@@ -34,7 +34,7 @@ class MongoDBPipeline(object):
 
     def process_item(self, item, spider):
         name = item.__class__.__name__
-        self.db[name].insert(dict(item))
+        self.db[name].insert_one(dict(item))
         return item
 
     def close_spider(self, spider):
